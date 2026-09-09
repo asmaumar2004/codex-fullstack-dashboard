@@ -1,0 +1,20 @@
+# Next.js and npm
+**/node_modules/
+**/.next/
+
+# Python virtual environments
+**/.venv/
+**/venv/
+
+# Python cache files
+**/__pycache__/
+*.py[cod]
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
