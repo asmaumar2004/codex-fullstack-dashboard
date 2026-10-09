@@ -22,7 +22,7 @@ app = FastAPI()
 # Allow the local Next.js frontend to send requests to this backend.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["https://codex-fullstack-dashboard-production.up.railway.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
