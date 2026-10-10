@@ -1,5 +1,7 @@
-// This is the address where the FastAPI backend runs during development.
-export const BACKEND_URL = "http://127.0.0.1:8000";
+// Railway provides the production URL during the frontend build.
+// The localhost fallback keeps local development working.
+export const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://127.0.0.1:8000";
 
 // These types describe the data returned by the backend.
 export type LoginResponse = {

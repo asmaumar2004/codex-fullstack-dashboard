@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -14,15 +16,19 @@ DUMMY_EMAIL = "admin@example.com"
 DUMMY_PASSWORD = "123456"
 DEMO_TOKEN = "demo-token"
 
+# Railway supplies the production frontend address through this variable.
+# The localhost value keeps local development working.
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000").rstrip("/")
+
 
 # Create the FastAPI application.
 app = FastAPI()
 
 
-# Allow the local Next.js frontend to send requests to this backend.
+# Allow the configured Next.js frontend to send requests to this backend.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://codex-fullstack-dashboard-production.up.railway.app/"],
+    allow_origins=[FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
